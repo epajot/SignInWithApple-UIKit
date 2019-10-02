@@ -60,24 +60,16 @@
 		9DB571FF23438E960094E689 /* SignInWithApple-UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				EA5DBD352344EC3300A07A34 /* Views */,
 				9DB572162343C8C90094E689 /* SignInWithApple-UIKit.entitlements */,
 				9DB5720023438E960094E689 /* AppDelegate.swift */,
 				9DB5720223438E960094E689 /* SceneDelegate.swift */,
 				9DB5720423438E960094E689 /* ViewController.swift */,
+				9DB5720623438E960094E689 /* Main.storyboard */,
 				9DB5720923438E970094E689 /* Assets.xcassets */,
+				9DB5720B23438E970094E689 /* LaunchScreen.storyboard */,
 				9DB5720E23438E970094E689 /* Info.plist */,
 			);
 			path = "SignInWithApple-UIKit";
-			sourceTree = "<group>";
-		};
-		EA5DBD352344EC3300A07A34 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9DB5720623438E960094E689 /* Main.storyboard */,
-				9DB5720B23438E970094E689 /* LaunchScreen.storyboard */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
