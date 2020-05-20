@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ImplementingUserAuthenticationWithSignInWithApple/Juice.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SignInWithApple-UIKit/SignInWithApple-UIKit.xcodeproj">
    </FileRef>
    <FileRef
