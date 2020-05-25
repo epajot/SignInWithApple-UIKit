@@ -1,33 +1,34 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+ See LICENSE folder for this sample’s licensing information.
 
-Abstract:
-Main application delegate.
-*/
+ Abstract:
+ Main application delegate.
+ */
 
-import UIKit
 import AuthenticationServices
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
     var window: UIWindow?
-    
+
     /// - Tag: did_finish_launching
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { (credentialState, error) in
+        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { credentialState, _ in
+            var info = ""
             switch credentialState {
             case .authorized:
-                break // The Apple ID credential is valid.
+                info = "The Apple ID credential is valid."
             case .revoked, .notFound:
-                // The Apple ID credential is either revoked or was not found, so show the sign-in UI.
+                info = "The Apple ID credential is either revoked or was not found, so show the sign-in UI."
                 DispatchQueue.main.async {
                     self.window?.rootViewController?.showLoginViewController()
                 }
             default:
                 break
             }
+            self.printClassAndFunc(info: info)
         }
         return true
     }
