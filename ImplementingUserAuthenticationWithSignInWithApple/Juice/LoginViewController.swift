@@ -92,7 +92,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     
     private func saveUserInKeychain(_ userIdentifier: String) {
         do {
-            try KeychainItem(service: "com.example.apple-samplecode.juice", account: "userIdentifier").saveItem(userIdentifier)
+            try KeychainItem(service: KeychainItem.bundleIdentifier, account: "userIdentifier").saveItem(userIdentifier)
         } catch {
             print("Unable to save userIdentifier to keychain.")
         }
