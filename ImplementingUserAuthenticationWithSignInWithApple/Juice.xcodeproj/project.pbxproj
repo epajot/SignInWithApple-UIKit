@@ -15,8 +15,20 @@
 		169AA600227C0E4F00BAB850 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169AA5FF227C0E4F00BAB850 /* Assets.xcassets */; };
 		169AA603227C0E4F00BAB850 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 169AA601227C0E4F00BAB850 /* LaunchScreen.storyboard */; };
 		169FA477227C3D79006A0051 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169FA476227C3D79006A0051 /* ResultViewController.swift */; };
+		9D00CE11247D67C900BD5087 /* JuiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00CE10247D67C900BD5087 /* JuiceTests.swift */; };
+		9D00CE19247D69F600BD5087 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E0943228BB03F00A42BB9 /* KeychainItem.swift */; };
 		9D629F82247C0C3D00C47FCB /* DebugUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D629F81247C0C3D00C47FCB /* DebugUtil.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9D00CE13247D67C900BD5087 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 169AA5ED227C0E4E00BAB850 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 169AA5F4227C0E4E00BAB850;
+			remoteInfo = Juice;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		07E46E025A750FC829AA775D /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
@@ -33,6 +45,9 @@
 		169AA604227C0E4F00BAB850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		169FA476227C3D79006A0051 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		9B548D815C2EEF38A11801AA /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		9D00CE0E247D67C900BD5087 /* JuiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JuiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D00CE10247D67C900BD5087 /* JuiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceTests.swift; sourceTree = "<group>"; };
+		9D00CE12247D67C900BD5087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D629F81247C0C3D00C47FCB /* DebugUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugUtil.swift; path = ../../../../../../rudifa/HOT/SwiftUtilBiP/Shared/Util/DebugUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +57,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				160DE02A227C29AC00DD88A7 /* AuthenticationServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D00CE0B247D67C900BD5087 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +94,7 @@
 			children = (
 				137212B01371F77000000001 /* README.md */,
 				169AA5F7227C0E4E00BAB850 /* Juice */,
+				9D00CE0F247D67C900BD5087 /* JuiceTests */,
 				169AA5F6227C0E4E00BAB850 /* Products */,
 				160DE028227C29AB00DD88A7 /* Frameworks */,
 				B09643FC719061AB9CC6DAD3 /* Configuration */,
@@ -83,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				169AA5F5227C0E4E00BAB850 /* Juice.app */,
+				9D00CE0E247D67C900BD5087 /* JuiceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,6 +123,15 @@
 				9D629F80247C0C0B00C47FCB /* Util */,
 			);
 			path = Juice;
+			sourceTree = "<group>";
+		};
+		9D00CE0F247D67C900BD5087 /* JuiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				9D00CE10247D67C900BD5087 /* JuiceTests.swift */,
+				9D00CE12247D67C900BD5087 /* Info.plist */,
+			);
+			path = JuiceTests;
 			sourceTree = "<group>";
 		};
 		9D629F80247C0C0B00C47FCB /* Util */ = {
@@ -145,18 +178,40 @@
 			productReference = 169AA5F5227C0E4E00BAB850 /* Juice.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9D00CE0D247D67C900BD5087 /* JuiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D00CE17247D67CA00BD5087 /* Build configuration list for PBXNativeTarget "JuiceTests" */;
+			buildPhases = (
+				9D00CE0A247D67C900BD5087 /* Sources */,
+				9D00CE0B247D67C900BD5087 /* Frameworks */,
+				9D00CE0C247D67C900BD5087 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9D00CE14247D67C900BD5087 /* PBXTargetDependency */,
+			);
+			name = JuiceTests;
+			productName = JuiceTests;
+			productReference = 9D00CE0E247D67C900BD5087 /* JuiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		169AA5ED227C0E4E00BAB850 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					169AA5F4227C0E4E00BAB850 = {
 						CreatedOnToolsVersion = 11.0;
+					};
+					9D00CE0D247D67C900BD5087 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 169AA5F4227C0E4E00BAB850;
 					};
 				};
 			};
@@ -174,6 +229,7 @@
 			projectRoot = "";
 			targets = (
 				169AA5F4227C0E4E00BAB850 /* Juice */,
+				9D00CE0D247D67C900BD5087 /* JuiceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -186,6 +242,13 @@
 				169AA603227C0E4F00BAB850 /* LaunchScreen.storyboard in Resources */,
 				169AA600227C0E4F00BAB850 /* Assets.xcassets in Resources */,
 				169AA5FE227C0E4E00BAB850 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9D00CE0C247D67C900BD5087 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +267,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9D00CE0A247D67C900BD5087 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D00CE19247D69F600BD5087 /* KeychainItem.swift in Sources */,
+				9D00CE11247D67C900BD5087 /* JuiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9D00CE14247D67C900BD5087 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 169AA5F4227C0E4E00BAB850 /* Juice */;
+			targetProxy = 9D00CE13247D67C900BD5087 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		169AA5FC227C0E4E00BAB850 /* Main.storyboard */ = {
@@ -396,6 +476,48 @@
 			};
 			name = Release;
 		};
+		9D00CE15247D67C900BD5087 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V7R356DGKL;
+				INFOPLIST_FILE = JuiceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.rudifa.JuiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Juice.app/Juice";
+			};
+			name = Debug;
+		};
+		9D00CE16247D67C900BD5087 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V7R356DGKL;
+				INFOPLIST_FILE = JuiceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.rudifa.JuiceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Juice.app/Juice";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -413,6 +535,15 @@
 			buildConfigurations = (
 				169AA608227C0E4F00BAB850 /* Debug */,
 				169AA609227C0E4F00BAB850 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D00CE17247D67CA00BD5087 /* Build configuration list for PBXNativeTarget "JuiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D00CE15247D67C900BD5087 /* Debug */,
+				9D00CE16247D67C900BD5087 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

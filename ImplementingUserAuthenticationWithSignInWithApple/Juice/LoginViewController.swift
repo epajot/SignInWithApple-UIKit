@@ -106,7 +106,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
     private func saveUserInKeychain(_ userIdentifier: String) {
         printClassAndFunc(info: "userIdentifier= \(userIdentifier)")
         do {
-            try KeychainItem(service: KeychainItem.bundleIdentifier, account: "userIdentifier").saveItem(userIdentifier)
+            try KeychainItem(account: "userIdentifier").saveItem(userIdentifier)
         } catch {
             print("Unable to save userIdentifier to keychain.")
         }

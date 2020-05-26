@@ -11,15 +11,14 @@ struct KeychainItem {
     // MARK: Types
 
     enum KeychainError: Error {
-        case noPassword
-        case unexpectedPasswordData
-        case unexpectedItemData
+        case noDataFound
+        case unexpectedData
         case unhandledError
     }
 
     // MARK: Properties
 
-    let service: String
+    private let service = Bundle.main.bundleIdentifier ?? ""
     static let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
 
     private(set) var account: String
@@ -28,15 +27,27 @@ struct KeychainItem {
 
     // MARK: Intialization
 
-    init(service: String, account: String, accessGroup: String? = nil) {
-        self.service = service
+    init(account: String, accessGroup: String? = nil) {
         self.account = account
         self.accessGroup = accessGroup
     }
 
     // MARK: Keychain access
 
-    func readItem() throws -> String {
+    func readItem<T: Codable>() throws -> T {
+        let data = try read()
+        let value = try JSONDecoder().decode(T.self, from: data)
+        return value
+    }
+
+    func saveItem<T: Codable>(_ item: T) throws {
+        let data = try JSONEncoder().encode(item)
+        try save(encodedData: data)
+    }
+
+    // MARK: Keychain access helpers
+
+    func read() throws -> Data {
         /*
          Build a query to find the item that matches the service, account and
          access group.
@@ -53,44 +64,40 @@ struct KeychainItem {
         }
 
         // Check the return status and throw an error if appropriate.
-        guard status != errSecItemNotFound else { throw KeychainError.noPassword }
+        guard status != errSecItemNotFound else { throw KeychainError.noDataFound }
         guard status == noErr else { throw KeychainError.unhandledError }
 
         // Parse the password string from the query result.
         guard let existingItem = queryResult as? [String: AnyObject],
-            let passwordData = existingItem[kSecValueData as String] as? Data,
-            let password = String(data: passwordData, encoding: String.Encoding.utf8)
+            let data = existingItem[kSecValueData as String] as? Data
         else {
-            throw KeychainError.unexpectedPasswordData
+            throw KeychainError.unexpectedData
         }
 
-        return password
+        return data
     }
 
-    func saveItem(_ password: String) throws {
-        // Encode the password into an Data object.
-        let encodedPassword = password.data(using: String.Encoding.utf8)!
-
+    private func save(encodedData: Data) throws {
         do {
             // Check for an existing item in the keychain.
-            try _ = readItem()
+            try _ = read()
 
-            // Update the existing item with the new password.
+            // Update the existing item with the new data.
             var attributesToUpdate = [String: AnyObject]()
-            attributesToUpdate[kSecValueData as String] = encodedPassword as AnyObject?
+            attributesToUpdate[kSecValueData as String] = encodedData as AnyObject?
 
             let query = KeychainItem.keychainQuery(withService: service, account: account, accessGroup: accessGroup)
             let status = SecItemUpdate(query as CFDictionary, attributesToUpdate as CFDictionary)
 
             // Throw an error if an unexpected status was returned.
             guard status == noErr else { throw KeychainError.unhandledError }
-        } catch KeychainError.noPassword {
+        } catch KeychainError.noDataFound {
             /*
-             No password was found in the keychain. Create a dictionary to save
+             No data was found in the keychain. Create a dictionary to save
              as a new keychain item.
              */
             var newItem = KeychainItem.keychainQuery(withService: service, account: account, accessGroup: accessGroup)
-            newItem[kSecValueData as String] = encodedPassword as AnyObject?
+            newItem[kSecValueData as String] = encodedData as AnyObject?
 
             // Add a the new item to the keychain.
             let status = SecItemAdd(newItem as CFDictionary, nil)
@@ -133,7 +140,7 @@ struct KeychainItem {
      */
     static var currentUserIdentifier: String {
         do {
-            let storedIdentifier = try KeychainItem(service: bundleIdentifier, account: "userIdentifier").readItem()
+            let storedIdentifier: String = try KeychainItem(account: "userIdentifier").readItem()
             return storedIdentifier
         } catch {
             return ""
@@ -142,7 +149,7 @@ struct KeychainItem {
 
     static func deleteUserIdentifierFromKeychain() {
         do {
-            try KeychainItem(service: bundleIdentifier, account: "userIdentifier").deleteItem()
+            try KeychainItem(account: "userIdentifier").deleteItem()
         } catch {
             print("Unable to delete userIdentifier from keychain")
         }
