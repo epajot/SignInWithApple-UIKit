@@ -79,7 +79,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
 
             let prevCredential = KeychainItem.currentUserCredentials
             if prevCredential.id != appleIDCredential.user {
-                let newCredential = UserCredentials(credential: appleIDCredential)
+                let newCredential = UserCredential(credential: appleIDCredential)
                 KeychainItem.saveCurrentUserCredential(newCredential)
             }
 

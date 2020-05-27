@@ -9,7 +9,7 @@
 import AuthenticationServices
 import Foundation
 
-struct UserCredentials: Codable, Equatable {
+struct UserCredential: Codable, Equatable {
     let id: String
     let fullName: String
     let email: String
