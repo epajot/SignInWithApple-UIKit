@@ -12,4 +12,6 @@ struct UserCredentials: Codable, Equatable {
     let appleId: String
     let fullName: String
     let email: String
+
+    static let keychainAccount = "userCredentials"
 }
