@@ -151,10 +151,18 @@ extension KeychainItem {
 
     static var currentUserCredentials: UserCredentials {
         do {
-            let storedCredentials: UserCredentials = try KeychainItem(account: "userIdentifier").readItem()
+            let storedCredentials: UserCredentials = try KeychainItem(account: UserCredentials.keychainAccount).readItem()
             return storedCredentials
         } catch {
             return UserCredentials()
+        }
+    }
+
+    static func saveCurrentUserCredential(_ credential: UserCredentials) {
+        do {
+            try KeychainItem(account: UserCredentials.keychainAccount).saveItem(credential)
+        } catch {
+            print("saveItem failed")
         }
     }
 

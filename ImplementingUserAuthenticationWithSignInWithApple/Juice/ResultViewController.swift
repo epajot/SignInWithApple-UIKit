@@ -10,15 +10,22 @@ import UIKit
 
 class ResultViewController: UIViewController {
     @IBOutlet var userIdentifierLabel: UILabel!
-    @IBOutlet var givenNameLabel: UILabel!
-    @IBOutlet var familyNameLabel: UILabel!
+    @IBOutlet var fullNameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var signOutButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        userIdentifierLabel.text = KeychainItem.currentUserIdentifier
+        updateCredentialLabels()
         printClassAndFunc(info: "@userIdentifier= \(String(describing: userIdentifierLabel.text))")
+    }
+
+    func updateCredentialLabels() {
+        printClassAndFunc()
+        let currentUserCredentials = KeychainItem.currentUserCredentials
+        userIdentifierLabel.text = currentUserCredentials.id
+        fullNameLabel.text = currentUserCredentials.fullName
+        emailLabel.text = currentUserCredentials.email
     }
 
     @IBAction func signOutButtonPressed() {
@@ -27,8 +34,7 @@ class ResultViewController: UIViewController {
 
         // Clear the user interface.
         userIdentifierLabel.text = ""
-        givenNameLabel.text = ""
-        familyNameLabel.text = ""
+        fullNameLabel.text = ""
         emailLabel.text = ""
 
         // Display the login controller again.

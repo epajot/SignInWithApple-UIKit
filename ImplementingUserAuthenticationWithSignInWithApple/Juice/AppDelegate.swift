@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.printClassAndFunc(info: "@")
         let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserIdentifier) { credentialState, _ in
+        appleIDProvider.getCredentialState(forUserID: KeychainItem.currentUserCredentials.id) { credentialState, _ in
             switch credentialState {
             case .authorized:
                 self.printClassAndFunc(info: "@The Apple ID credential is valid.")

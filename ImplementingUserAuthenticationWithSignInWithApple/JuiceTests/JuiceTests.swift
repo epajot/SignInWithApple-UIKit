@@ -57,7 +57,7 @@ class JuiceTests: XCTestCase {
     }
 
     func test_KeychainItem3() {
-        let uCred = UserCredentials(appleId: "TEST_ID", fullName: "N.N.", email: "x@y.z")
+        let uCred = UserCredentials(id: "TEST_ID", fullName: "N.N.", email: "x@y.z")
 
         do {
             try KeychainItem(account: testAccountKey).deleteItem()
@@ -81,7 +81,12 @@ class JuiceTests: XCTestCase {
     func test_KeychainItem4() {
        // ---- LoginViewController.authorizationController(controller:didCompleteWithAuthorization:) userIdentifier: 000177.cbd4407ecc7244a0bf6d3b4d8cd83569.1750, fullName: Optional(givenName: Rudolf familyName: Farkas ), email: Optional("ptdz4jhxyh@privaterelay.appleid.com")
 
-        let userCred = UserCredentials(appleId: "000177.cbd4407ecc7244a0bf6d3b4d8cd83569.1750", fullName: "Rudolf Farkas", email: "ptdz4jhxyh@privaterelay.appleid.com")
+        let userCredentials1: UserCredentials? = try? KeychainItem(account: UserCredentials.keychainAccount).readItem()
+        printClassAndFunc(info: userCredentials1.debugDescription)
+        let userCredentials2: UserCredentials? = KeychainItem.currentUserCredentials
+        printClassAndFunc(info: userCredentials2.debugDescription)
+
+        let userCred = UserCredentials(id: "000177.cbd4407ecc7244a0bf6d3b4d8cd83569.1750", fullName: "Rudolf Farkas", email: "ptdz4jhxyh@privaterelay.appleid.com")
 
         do {
             try KeychainItem(account: UserCredentials.keychainAccount).saveItem(userCred)
@@ -89,7 +94,8 @@ class JuiceTests: XCTestCase {
             XCTFail("saveItem failed")
         }
 
-        let userCredentials2: UserCredentials? = try? KeychainItem(account: UserCredentials.keychainAccount).readItem()
-        XCTAssertEqual(userCredentials2, userCred)
+        let userCredentials3: UserCredentials? = try? KeychainItem(account: UserCredentials.keychainAccount).readItem()
+        XCTAssertEqual(userCredentials3, userCred)
+        XCTAssertEqual(userCredentials3?.id, "000177.cbd4407ecc7244a0bf6d3b4d8cd83569.1750")
     }
 }

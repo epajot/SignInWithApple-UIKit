@@ -77,6 +77,12 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             let fullName = appleIDCredential.fullName
             let email = appleIDCredential.email
 
+            let prevCredential = KeychainItem.currentUserCredentials
+            if prevCredential.id != appleIDCredential.user {
+                let newCredential = UserCredentials(credential: appleIDCredential)
+                KeychainItem.saveCurrentUserCredential(newCredential)
+            }
+
             // For the purpose of this demo app, store the `userIdentifier` in the keychain.
             saveUserInKeychain(userIdentifier)
 
@@ -118,16 +124,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         else { return }
 
         DispatchQueue.main.async {
-            viewController.userIdentifierLabel.text = userIdentifier
-            if let givenName = fullName?.givenName {
-                viewController.givenNameLabel.text = givenName
-            }
-            if let familyName = fullName?.familyName {
-                viewController.familyNameLabel.text = familyName
-            }
-            if let email = email {
-                viewController.emailLabel.text = email
-            }
+            viewController.updateCredentialLabels()
             self.dismiss(animated: true, completion: nil)
         }
     }

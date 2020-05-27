@@ -19,6 +19,7 @@
 		9D00CE19247D69F600BD5087 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E0943228BB03F00A42BB9 /* KeychainItem.swift */; };
 		9D00CE1B247E8C8100BD5087 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00CE1A247E8C8100BD5087 /* UserCredentials.swift */; };
 		9D00CE1C247E8C8A00BD5087 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00CE1A247E8C8100BD5087 /* UserCredentials.swift */; };
+		9D00CE1D247E9DB900BD5087 /* DebugUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D629F81247C0C3D00C47FCB /* DebugUtil.swift */; };
 		9D629F82247C0C3D00C47FCB /* DebugUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D629F81247C0C3D00C47FCB /* DebugUtil.swift */; };
 /* End PBXBuildFile section */
 
@@ -279,6 +280,7 @@
 				9D00CE19247D69F600BD5087 /* KeychainItem.swift in Sources */,
 				9D00CE11247D67C900BD5087 /* JuiceTests.swift in Sources */,
 				9D00CE1C247E8C8A00BD5087 /* UserCredentials.swift in Sources */,
+				9D00CE1D247E9DB900BD5087 /* DebugUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
