@@ -57,13 +57,7 @@ class JuiceTests: XCTestCase {
     }
 
     func test_KeychainItem3() {
-        struct UserCredentials: Codable, Equatable {
-            let appleId = "TEST_ID"
-            let fullName = "N.N."
-            let emnail = "x@y.z"
-        }
-
-        let uCred = UserCredentials()
+        let uCred = UserCredentials(appleId: "TEST_ID", fullName: "N.N.", email: "x@y.z")
 
         do {
             try KeychainItem(account: testAccountKey).deleteItem()
