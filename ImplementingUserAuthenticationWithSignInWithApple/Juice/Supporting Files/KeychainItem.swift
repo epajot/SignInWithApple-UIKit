@@ -133,7 +133,9 @@ struct KeychainItem {
 
         return query
     }
+}
 
+extension KeychainItem {
     /*
      For the purpose of this demo app, the user identifier will be stored in the device keychain.
      You should store the user identifier in your account management system.

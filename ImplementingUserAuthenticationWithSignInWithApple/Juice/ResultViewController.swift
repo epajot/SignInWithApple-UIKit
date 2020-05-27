@@ -18,7 +18,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         userIdentifierLabel.text = KeychainItem.currentUserIdentifier
-        printClassAndFunc(info: "userIdentifier= \(String(describing: userIdentifierLabel.text))")
+        printClassAndFunc(info: "@userIdentifier= \(String(describing: userIdentifierLabel.text))")
     }
 
     @IBAction func signOutButtonPressed() {
