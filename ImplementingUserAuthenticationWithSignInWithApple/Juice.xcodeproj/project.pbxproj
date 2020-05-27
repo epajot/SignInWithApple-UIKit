@@ -19,8 +19,7 @@
 		9D00CE19247D69F600BD5087 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E0943228BB03F00A42BB9 /* KeychainItem.swift */; };
 		9D00CE1B247E8C8100BD5087 /* UserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00CE1A247E8C8100BD5087 /* UserCredential.swift */; };
 		9D00CE1C247E8C8A00BD5087 /* UserCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00CE1A247E8C8100BD5087 /* UserCredential.swift */; };
-		9D00CE1D247E9DB900BD5087 /* DebugUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D629F81247C0C3D00C47FCB /* DebugUtil.swift */; };
-		9D629F82247C0C3D00C47FCB /* DebugUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D629F81247C0C3D00C47FCB /* DebugUtil.swift */; };
+		9D00CE1F247EB9F900BD5087 /* DebugUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D00CE1E247EB9F900BD5087 /* DebugUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +51,7 @@
 		9D00CE10247D67C900BD5087 /* JuiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JuiceTests.swift; sourceTree = "<group>"; };
 		9D00CE12247D67C900BD5087 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D00CE1A247E8C8100BD5087 /* UserCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredential.swift; sourceTree = "<group>"; };
-		9D629F81247C0C3D00C47FCB /* DebugUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugUtil.swift; path = ../../../../../../rudifa/HOT/SwiftUtilBiP/Shared/Util/DebugUtil.swift; sourceTree = "<group>"; };
+		9D00CE1E247EB9F900BD5087 /* DebugUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +141,7 @@
 		9D629F80247C0C0B00C47FCB /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				9D629F81247C0C3D00C47FCB /* DebugUtil.swift */,
+				9D00CE1E247EB9F900BD5087 /* DebugUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -268,8 +267,8 @@
 				169AA5FB227C0E4E00BAB850 /* LoginViewController.swift in Sources */,
 				169AA5F9227C0E4E00BAB850 /* AppDelegate.swift in Sources */,
 				165E0944228BB03F00A42BB9 /* KeychainItem.swift in Sources */,
-				9D629F82247C0C3D00C47FCB /* DebugUtil.swift in Sources */,
 				9D00CE1B247E8C8100BD5087 /* UserCredential.swift in Sources */,
+				9D00CE1F247EB9F900BD5087 /* DebugUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +279,6 @@
 				9D00CE19247D69F600BD5087 /* KeychainItem.swift in Sources */,
 				9D00CE11247D67C900BD5087 /* JuiceTests.swift in Sources */,
 				9D00CE1C247E8C8A00BD5087 /* UserCredential.swift in Sources */,
-				9D00CE1D247E9DB900BD5087 /* DebugUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
