@@ -149,6 +149,15 @@ extension KeychainItem {
         }
     }
 
+    static var currentUserCredentials: UserCredentials {
+        do {
+            let storedCredentials: UserCredentials = try KeychainItem(account: "userIdentifier").readItem()
+            return storedCredentials
+        } catch {
+            return UserCredentials()
+        }
+    }
+
     static func deleteUserIdentifierFromKeychain() {
         do {
             try KeychainItem(account: "userIdentifier").deleteItem()

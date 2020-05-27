@@ -9,9 +9,15 @@
 import Foundation
 
 struct UserCredentials: Codable, Equatable {
-    let appleId: String
+    let id: String
     let fullName: String
     let email: String
+
+    init(id: String = "", fullName: String = "", email: String = "") {
+        self.id = id
+        self.fullName = fullName
+        self.email = email
+    }
 
     static let keychainAccount = "userCredentials"
 }
